@@ -1,0 +1,14 @@
+export, class - These are reserved keywords - They have special meaning
+logic class or component
+component - a specialized class
+view - html - 
+
+cli - command line interface
+angular cli - use ng for this. It does not do coding for you. It will help you generate some predefined infrastructure
+
+{{ title }}  - angular expression
+
+MVC - Model View Controller
+Model - Data - It can retrieved from a database or it can simply be an class object or attribute
+View - HTML and CSS - What you see or interact with
+Controller - That controls/define the behavior - Component which has all the logic
