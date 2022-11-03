@@ -12,3 +12,60 @@ MVC - Model View Controller
 Model - Data - It can retrieved from a database or it can simply be an class object or attribute
 View - HTML and CSS - What you see or interact with
 Controller - That controls/define the behavior - Component which has all the logic
+
+Two way binding - use banana bracket [(ngModel)]="inputValue"
+
+component file i.e. .ts, view file i.e .html and css file i.e. .scss file together make a component
+
+When you create a new component you need to register it - it is not part of the app by default - i.e. your app does not know that the component exists
+How do you register a component - By declaring the component(i.e. *.component.ts) in the app.module.ts file in the declaration section(which is an array)
+
+In any application there will many configurations - That is how all the pieces are linked
+
+module
+    It is the most important file for an app. This is where everything comes together
+    module tells what things (external modules, components, providers etc) are need to run an app
+
+Different parts of module
+    module is decorated by @NgModule. If you decorate a class by @NgModule - it becomes the module for the app. Usually there is only one module in an app
+    declarations - List of all the components created or used in the app
+    imports - All the external modules that we need to run the app
+    providers - to share data or behavior between components
+    bootstrap - what component to load on the start of the app
+
+RoutingModule - it is also decorated by @NgModule
+    Based on the route (i.e. hash url) - it tells what components should be used. This configuration is done in this file
+    We inject RouterModule.forRoot(routes) in the import section of the routing module
+
+component - It is a typescript  class with @Component decorator or annotation
+
+constructor -
+    It is a special/reserved function of a typescript class that is executed at first when the class is loaded
+
+first constructor is called. Then angular lifecycle hooks are called
+Angular lifecycle hooks are executed in a predefined order/sequence
+Angular knows in what orer to execute lifecycle hooks - this is an angular behavior
+
+
+ngOnInit - First lifecycle hook to be called. It is for initializing the angular component
+ngAfterViewInit - Last lifecycle hook to be called. It is called after all the component objects and views are loaded
+ngOnDestroy - It is called when the component is destroyed
+
+ngOnInit, ngAfterViewInit, ngDestroy is called only once always
+
+Nutshell this is how angular works
+    It maintains a previous copy. If anything is changed - It compares it to previous copy.\
+    If it is different than previous copy - it will update the app - meaning - it will rerender the app to reflect the changes
+    This is called digest cycle
+    Behind the scene angular does DOM manipulation as part of digest cycle
+
+
+Assignment
+Read this - https://angular.io/guide/lifecycle-hooks
+https://indepth.dev/posts/1136/angulars-digest-is-reborn-in-the-newer-version-of-angular
+
+
+
+
+
+
