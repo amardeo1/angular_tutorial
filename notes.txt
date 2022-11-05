@@ -65,7 +65,27 @@ Read this - https://angular.io/guide/lifecycle-hooks
 https://indepth.dev/posts/1136/angulars-digest-is-reborn-in-the-newer-version-of-angular
 
 
+_________________________________________________________________________________________________________
+_________________________________________________________________________________________________________
 
+November 4th
+
+Only App component loads by default
+Other components will load only when you use it inside app component
+
+Why did appComponent load by default not heroes component?
+    Because in your module file you have said that appComponent is your bootstrap component not heroes component
+
+camelcase
+ If you follow processes and standards or naming conventions - you can infer so many things
+
+ interface defines the type - It only allows you to do what is allowed
+
+ You define the type of the object only once
+
+ Language ko naam - TypeScript
+_________________________________________________________________________________________________________
+_________________________________________________________________________________________________________
 
 
 
