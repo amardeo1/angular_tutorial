@@ -87,5 +87,31 @@ camelcase
 _________________________________________________________________________________________________________
 _________________________________________________________________________________________________________
 
+November 7th
+
+expression -    one way binding - not used interactive elements. Used in elements like div, span
+                It is used just to display
+banana bracket  -   used for two way binding -  [(ngModel)]="hero.name"
+square bracket  -   one way binding - [ngModel]="hero.name" equivalent to expression for input elements
+
+You need to register your new components
+
+what is the process to register?
+    Add it to the declarations block
+
+Part 1 link - https://angular.io/tutorial/toh-pt1
+
+
+_________________________________________________________________________________________________________
+_________________________________________________________________________________________________________
+
+
+
+
+
+
+_________________________________________________________________________________________________________
+_________________________________________________________________________________________________________
+
 
 

@@ -16,7 +16,9 @@ export class HeroesComponent implements OnInit {
   };
   
   ngOnInit(): void {
-    
+    setInterval(() => {
+      console.log('hero.name ', this.hero.name);
+    }, 1000)
   }
 
 }
