@@ -105,7 +105,40 @@ Part 1 link - https://angular.io/tutorial/toh-pt1
 _________________________________________________________________________________________________________
 _________________________________________________________________________________________________________
 
+November 9th
 
+You need to register angular components, directive, services etc. Not interfaces or typescript objects.
+You access interfaces or typescript using relative path
+
+What things from component does view has access to?
+    objects and functions
+
+Array of objects
+
+*ngFor - In built angular structural directive. It is used to iterate/loop (for loop) the array in view
+html does not have looping capability. So, we need to use *ngFor
+
+heroes is an array. So, you cannot do heroes.id or heroes.name
+
+hero is an object of type Hero. So you can use her.id or hero.name
+
+Null check
+    component
+         if (this.selectedHero !== null ) {
+            this.selectedHero.name
+        }
+    View
+        {{selectedHero?.name}}
+
+*ngIf - In built angular structural directive. It is used in a view to render an element based on the if condition
+
+<input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
+    value of input element is two way binded binded to selectedHero.name.
+    If we type anything in this input, it will update the name property in selectedHero object since it is two way binded using banana bracket [(ngModel)].
+
+study - https://angular.io/tutorial/toh-pt2
+_________________________________________________________________________________________________________
+_________________________________________________________________________________________________________
 
 
 
