@@ -140,7 +140,48 @@ study - https://angular.io/tutorial/toh-pt2
 _________________________________________________________________________________________________________
 _________________________________________________________________________________________________________
 
+November 11th
 
+Every object you use in the view has to be defined in the component
+
+Hero Detail Component is the child of Heroes Component
+
+When we select a Hero in Heroes it gets reflectd in Hero Detail. This is possible by inter component communication.
+
+@Input() hero?: Hero; - in Hero Detail is passed from Heroes Component
+
+Heroes component is passing selectedHero to hero input object in Hero Detail  component - <app-hero-detail [hero]="selectedHero"></app-hero-detail>
+
+Reference by memory - https://blog.penjee.com/passing-by-value-vs-by-reference-java-graphical/
+
+Read what is digest cycle
+
+Angular maintains a previous copy of component objects. When any object changes - it compares what changed with the previous
+Now it knows exactly what changed. It also know in what different views that object is used. So, it updates those view only.
+Once the update is completed, it replaces the previous copy with new one (previous one is replaced with latest one)
+
+previous
+x= a
+
+New change
+x=b
+
+now it runs digest cycle by comparing the changes. It updates the view to b. previous still has a.
+
+previous
+x= b
+
+New change
+x=a
+
+It updates the view to a
+
+previous
+x= a
+
+https://angular.io/tutorial/toh-pt3
+_________________________________________________________________________________________________________
+_________________________________________________________________________________________________________
 
 
 _________________________________________________________________________________________________________
