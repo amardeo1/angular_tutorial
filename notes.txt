@@ -1,0 +1,191 @@
+export, class - These are reserved keywords - They have special meaning
+logic class or component
+component - a specialized class
+view - html - 
+
+cli - command line interface
+angular cli - use ng for this. It does not do coding for you. It will help you generate some predefined infrastructure
+
+{{ title }}  - angular expression
+
+MVC - Model View Controller
+Model - Data - It can retrieved from a database or it can simply be an class object or attribute
+View - HTML and CSS - What you see or interact with
+Controller - That controls/define the behavior - Component which has all the logic
+
+Two way binding - use banana bracket [(ngModel)]="inputValue"
+
+component file i.e. .ts, view file i.e .html and css file i.e. .scss file together make a component
+
+When you create a new component you need to register it - it is not part of the app by default - i.e. your app does not know that the component exists
+How do you register a component - By declaring the component(i.e. *.component.ts) in the app.module.ts file in the declaration section(which is an array)
+
+In any application there will many configurations - That is how all the pieces are linked
+
+module
+    It is the most important file for an app. This is where everything comes together
+    module tells what things (external modules, components, providers etc) are need to run an app
+
+Different parts of module
+    module is decorated by @NgModule. If you decorate a class by @NgModule - it becomes the module for the app. Usually there is only one module in an app
+    declarations - List of all the components created or used in the app
+    imports - All the external modules that we need to run the app
+    providers - to share data or behavior between components
+    bootstrap - what component to load on the start of the app
+
+RoutingModule - it is also decorated by @NgModule
+    Based on the route (i.e. hash url) - it tells what components should be used. This configuration is done in this file
+    We inject RouterModule.forRoot(routes) in the import section of the routing module
+
+component - It is a typescript  class with @Component decorator or annotation
+
+constructor -
+    It is a special/reserved function of a typescript class that is executed at first when the class is loaded
+
+first constructor is called. Then angular lifecycle hooks are called
+Angular lifecycle hooks are executed in a predefined order/sequence
+Angular knows in what orer to execute lifecycle hooks - this is an angular behavior
+
+
+ngOnInit - First lifecycle hook to be called. It is for initializing the angular component
+ngAfterViewInit - Last lifecycle hook to be called. It is called after all the component objects and views are loaded
+ngOnDestroy - It is called when the component is destroyed
+
+ngOnInit, ngAfterViewInit, ngDestroy is called only once always
+
+Nutshell this is how angular works
+    It maintains a previous copy. If anything is changed - It compares it to previous copy.\
+    If it is different than previous copy - it will update the app - meaning - it will rerender the app to reflect the changes
+    This is called digest cycle
+    Behind the scene angular does DOM manipulation as part of digest cycle
+
+
+Assignment
+Read this - https://angular.io/guide/lifecycle-hooks
+https://indepth.dev/posts/1136/angulars-digest-is-reborn-in-the-newer-version-of-angular
+
+
+_________________________________________________________________________________________________________
+_________________________________________________________________________________________________________
+
+November 4th
+
+Only App component loads by default
+Other components will load only when you use it inside app component
+
+Why did appComponent load by default not heroes component?
+    Because in your module file you have said that appComponent is your bootstrap component not heroes component
+
+camelcase
+ If you follow processes and standards or naming conventions - you can infer so many things
+
+ interface defines the type - It only allows you to do what is allowed
+
+ You define the type of the object only once
+
+ Language ko naam - TypeScript
+_________________________________________________________________________________________________________
+_________________________________________________________________________________________________________
+
+November 7th
+
+expression -    one way binding - not used interactive elements. Used in elements like div, span
+                It is used just to display
+banana bracket  -   used for two way binding -  [(ngModel)]="hero.name"
+square bracket  -   one way binding - [ngModel]="hero.name" equivalent to expression for input elements
+
+You need to register your new components
+
+what is the process to register?
+    Add it to the declarations block
+
+Part 1 link - https://angular.io/tutorial/toh-pt1
+
+
+_________________________________________________________________________________________________________
+_________________________________________________________________________________________________________
+
+November 9th
+
+You need to register angular components, directive, services etc. Not interfaces or typescript objects.
+You access interfaces or typescript using relative path
+
+What things from component does view has access to?
+    objects and functions
+
+Array of objects
+
+*ngFor - In built angular structural directive. It is used to iterate/loop (for loop) the array in view
+html does not have looping capability. So, we need to use *ngFor
+
+heroes is an array. So, you cannot do heroes.id or heroes.name
+
+hero is an object of type Hero. So you can use her.id or hero.name
+
+Null check
+    component
+         if (this.selectedHero !== null ) {
+            this.selectedHero.name
+        }
+    View
+        {{selectedHero?.name}}
+
+*ngIf - In built angular structural directive. It is used in a view to render an element based on the if condition
+
+<input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
+    value of input element is two way binded binded to selectedHero.name.
+    If we type anything in this input, it will update the name property in selectedHero object since it is two way binded using banana bracket [(ngModel)].
+
+study - https://angular.io/tutorial/toh-pt2
+_________________________________________________________________________________________________________
+_________________________________________________________________________________________________________
+
+November 11th
+
+Every object you use in the view has to be defined in the component
+
+Hero Detail Component is the child of Heroes Component
+
+When we select a Hero in Heroes it gets reflectd in Hero Detail. This is possible by inter component communication.
+
+@Input() hero?: Hero; - in Hero Detail is passed from Heroes Component
+
+Heroes component is passing selectedHero to hero input object in Hero Detail  component - <app-hero-detail [hero]="selectedHero"></app-hero-detail>
+
+Reference by memory - https://blog.penjee.com/passing-by-value-vs-by-reference-java-graphical/
+
+Read what is digest cycle
+
+Angular maintains a previous copy of component objects. When any object changes - it compares what changed with the previous
+Now it knows exactly what changed. It also know in what different views that object is used. So, it updates those view only.
+Once the update is completed, it replaces the previous copy with new one (previous one is replaced with latest one)
+
+previous
+x= a
+
+New change
+x=b
+
+now it runs digest cycle by comparing the changes. It updates the view to b. previous still has a.
+
+previous
+x= b
+
+New change
+x=a
+
+It updates the view to a
+
+previous
+x= a
+
+https://angular.io/tutorial/toh-pt3
+_________________________________________________________________________________________________________
+_________________________________________________________________________________________________________
+
+
+_________________________________________________________________________________________________________
+_________________________________________________________________________________________________________
+
+
+
