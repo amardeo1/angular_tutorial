@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-heroes',
@@ -9,24 +11,23 @@ import { HeroService } from '../hero.service';
 })
 export class HeroesComponent implements OnInit {
 
-  constructor(private heroService: HeroService) {}
-
   selectedHero?: Hero;
 
   heroes: Hero[] = [];
 
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-  }
+  constructor(private heroService: HeroService, private messageService: MessageService) { }
 
-  getHeroes(): void {
-    this.heroes = this.heroService.getHeroes();
-  }
-
-  // self execute - because it is a lifecycle hook
   ngOnInit(): void {
     this.getHeroes();
   }
 
-}
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
+  }
 
+  getHeroes(): void {
+    this.heroService.getHeroes()
+        .subscribe(heroes => this.heroes = heroes);
+  }
+}

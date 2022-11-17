@@ -192,6 +192,43 @@ November 14th
 _________________________________________________________________________________________________________
 _________________________________________________________________________________________________________
 
+November 16th
+
+Service - used for data or code sharing which will be used by other components
+ const heroes = of(HEROES); -   of function returns an observable
+
+You can subscribe an Observable
+
+// anonymous function
+(heroes) => {
+  this.heroes = heroes
+}
+
+anonymous function - it is function with no name
+you cannot define a anonymous function, but you can pass it as an argument to a function as a callback
+
+callback is used for asynchronous operations
+
+Reading material - callback, synchronous vs asynchronous in javascript
+
+provider and subscriber - everytime a provider emits a new value, it will invoke the callback of the subscriber
+
+javascript is a synchronous language
+
+In real world data comes from a network (api) call which is asynchronous
+asynchronous can be achieved with the help of observable and callback
+
+return in a function means that function has finished executing
+
+In nutshell - Everytime observable emits the callbacks of all the subscriber gets executed
+
+To use a service we need to inject a service - you inject in constructor like constructor(private messageService: MessageService) { }
+
+
+_________________________________________________________________________________________________________
+_________________________________________________________________________________________________________
+
+
 
 
 
