@@ -228,6 +228,50 @@ To use a service we need to inject a service - you inject in constructor like co
 _________________________________________________________________________________________________________
 _________________________________________________________________________________________________________
 
+November 18th
+
+Navigation
+
+How does navigation work?
+    We play with href. We change the url (technically we change the href).
+    For that particular url we load different content
+    Look at window.location to see different parts of an url
+
+We have three views - Dashboard, Heroes list and single hero detail - so need to configure three routes (path) and load respective content for each route
+
+We need to import AppRoutingModule in AppModule under imports section
+    Now angular knows that all the routes are configured in AppRoutingModule
+
+We create a routes array and pass it to the router module
+
+
+
+
+_________________________________________________________________________________________________________
+_________________________________________________________________________________________________________
+November 30th
+
+Where do we insert the component based on a particular route? - router-outlet
+
+Requirement
+    We need to be able to show the detail of specific hero in three ways
+        By clicking on the hero in Dashboard page
+        By clicking on the hero in Heroes page
+        We should be able to load it via url
+
+
+this.route.snapshot.paramMap.get('id') - This will give id param value
+
+this.heroService.getHero(id) - This function extracts the hero form heroes array with the given id
+
+
+_________________________________________________________________________________________________________
+_________________________________________________________________________________________________________
+
+
+
+
+
 
 
 
