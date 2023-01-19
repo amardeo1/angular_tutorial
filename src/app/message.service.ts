@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class MessageService {
-  messages: string[] = [];
+  private messages: string[] = [];
 
   // this is a simple function definition
   add(message: string) {
@@ -13,5 +13,9 @@ export class MessageService {
 
   clear() {
     this.messages = [];
+  }
+
+  getMessages() {
+    return this.messages;
   }
 }

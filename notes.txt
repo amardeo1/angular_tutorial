@@ -268,8 +268,89 @@ this.heroService.getHero(id) - This function extracts the hero form heroes array
 _________________________________________________________________________________________________________
 _________________________________________________________________________________________________________
 
+December 19th
+
+In real world we call and api to get the data.
+API - Some kind of interface. Its like request and response structure is pre-defined
+        We make an api call to retrieve, update, create or delete information
+
+What is an end point?
+    Ip address that is hosted somewhere. When hit google.com -> you are actually trying to hit an ip address.
+    Google.com is mapped to an ip address in global DNS server.
+
+Types of an api call
+
+    Get - All the information is in the url
+    Post - We make a post request to an http url and send additional object (specific type of object that
+            backedn api understands) as a part of the post request
 
 
+Learning - https://angular.io/guide/http
+
+Simulate remote server call
+
+When we make a rest api call we need
+    url - http endpoint
+    And request body
+
+HttpClient methods - returns an observable
+    get - endpoint and data is part of the url - http://xyz.com/getHeroDetails?heroId='7'
+    post - endpoint and request body (data as an object)
+        url - http://xyz.com/getHeroDetails
+        data - {
+            heroId: 7
+        }
+    put
+    delete
+_________________________________________________________________________________________________________
+_________________________________________________________________________________________________________
+
+December 21th
+
+Ajax call or REST call
+
+All api request has status attached to a response
+
+Statuses meaning
+    200 - it worked (server was able to handle your request)
+    404 - url is wrong
+    500 - You were reach server, but something went wrong in server
+
+
+    status 200
+    {
+        isFailed: false,
+        description: '',
+        data: {
+            name: 'a',
+            email: 'a@a.com'
+        }
+    }
+    
+    All api calls has contracts - I will send this kind of object in response
+    
+    Status codes - https://restfulapi.net/http-status-codes/
+
+    We make an api call using http protocol
+_________________________________________________________________________________________________________
+_________________________________________________________________________________________________________
+
+Jan 18th
+
+Web application use - To share/update information in a presentable way
+What is information - Data
+Where do you get your data from? - API call (htpp call or Rest call)
+
+
+Synchronous - One after another in a sequence
+Asynchronous - Not in a sequence
+
+We pass anonymous function as a callback for asynchronous scenarios usually
+
+Update request needs to be sent by frontend - origination
+
+_________________________________________________________________________________________________________
+_________________________________________________________________________________________________________
 
 
 

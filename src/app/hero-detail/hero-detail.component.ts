@@ -22,6 +22,9 @@ export class HeroDetailComponent implements OnInit {
   // This is a lifecycle hook
   ngOnInit(): void {
     this.getHero();
+    setInterval(() => {
+      console.log('hero name is: ', this.hero?.name);
+    }, 500)
   }
   
   getHero(): void {
@@ -36,6 +39,13 @@ export class HeroDetailComponent implements OnInit {
   goBack(): void {
     // Take me back where I came from
     this.location.back();
+  }
+
+  save(): void {
+    if (this.hero) {
+      this.heroService.updateHero(this.hero)
+        .subscribe(() => this.goBack());
+    }
   }
 
 }
